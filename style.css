@@ -17,9 +17,6 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
-  background: #0f0f0f;
-  padding: 20px;
-  border-radius: 10px;
 }
 
 .toolbar select,
@@ -62,7 +59,7 @@ h1 {
 
 .bar {
   background: #95bbfa;
-  width: 35px;
+  width: 40px;
   transition: height 0.2s, background 0.2s;
 }
 
