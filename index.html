@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorting Visualizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Sorting Algorithm Visualizer</h1>
+  <div class="toolbar">
+    <select id="algorithm">
+      <option disabled selected>Choose algorithm</option>
+      <option value="bubble">Bubble Sort</option>
+      <option value="selection">Selection Sort</option>
+      <option value="insertion">Insertion Sort</option>
+      <option value="merge">Merge Sort</option>
+      <option value="quick">Quick Sort</option>
+    </select>
+    <select id="size">
+      <option disabled selected>Array size</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="15">15</option>
+      <option value="20">20</option>
+      <option value="25">25</option>
+      <option value="30">30</option>
+      <option value="35">35</option>
+      <option value="40">40</option>
+      <option value="45">45</option>
+      <option value="50">50</option>
+      <option value="55">55</option>
+      <option value="60">60</option>
+      <option value="65">65</option>
+      <option value="70">70</option>
+      <option value="75">75</option>
+      <option value="80">80</option>
+      <option value="85">85</option>
+      <option value="90">90</option>
+      <option value="95">95</option>
+      <option value="100">100</option>
+    </select>
+    <select id="speed">
+      <option disabled selected>Speed</option>
+      <option value="0.5">0.5x</option>
+      <option value="1">1x</option>
+      <option value="1.5">1.5x</option>
+      <option value="2">2x</option>
+    </select>
+    <select id="inputType">
+      <option disabled selected>Input</option>
+      <option value="random">Random</option>
+      <option value="manual">Manual</option>
+    </select>
+    <input type="text" id="manualInput" placeholder="Enter array (e.g., 12,45,3,76)" style="display: none; padding: 10px; margin-top: 10px; width: 80%; max-width: 400px; border-radius: 8px; border: none;" />
+    <button class="generate" onclick="generateArray()">Generate array</button>
+    <button onclick="startSort()">Sort</button>
+  </div>
+  <div class="complexity">
+    <p><strong>Time Complexity:</strong> <span id="complexity">Choose an algorithm</span></p>
+  </div>
+  <div id="bars-container"></div>
+  <script>
+    const inputType = document.getElementById("inputType");
+    const manualInput = document.getElementById("manualInput");
+    const algorithm = document.getElementById("algorithm");
+    const complexityText = document.getElementById("complexity");
+
+    const complexities = {
+      bubble: "O(n²)",
+      selection: "O(n²)",
+      insertion: "O(n²)",
+      merge: "O(n log n)",
+      quick: "O(n log n)"
+    };
+
+    inputType.addEventListener("change", () => {
+      manualInput.style.display = inputType.value === "manual" ? "block" : "none";
+    });
+
+    algorithm.addEventListener("change", () => {
+      const selected = algorithm.value;
+      complexityText.textContent = complexities[selected] || "Choose an algorithm";
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
